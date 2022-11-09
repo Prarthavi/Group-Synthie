@@ -145,7 +145,7 @@ namespace Synthie
             //val2 = val2 < 0 ? 0 : val2;
             //sanity check for stereo
 
-            CalculateReson(0.2f);
+            CalculateReson(0.7f);
 
         }
 
@@ -224,6 +224,45 @@ namespace Synthie
                 soundIn.Close();
                 soundIn = null;
             }
+        }
+
+        internal void GenerateSquare()
+        {
+            if (soundOut == null)
+                soundOut = new SoundStream(tempFilePath, 'w', 44100, 1);
+
+            double freq = 1000;
+            float duration = 5f;
+            double frameDuration = 1.0 / soundOut.SampleRate;
+            Subtractive subtractive = new Subtractive((float)(1.0 / soundOut.SampleRate));
+            subtractive.SamplePeriod = soundOut.SampleRate;
+            ADSREnvelope adsr = new ADSREnvelope(duration, 0.07, 0.07, 0.07, 0.6);
+            float val;
+            int count = 0;
+            float temp = 0;
+            float temp2 = 0;
+            float R = 0.7f;
+            double theta = (2 * Math.PI * 0.7);
+            float cosFilter = (float)Math.Cos(theta);
+            for (double time = 0.0; time < duration; time += frameDuration)
+            {
+                count++;
+
+                //subtractive.Amp = adsr.GetAmplitudeAtTime(time);
+
+                subtractive.Generate();
+                val = subtractive.Generated();
+                if (count == 1)
+                    temp2 = val;
+                else if (count == 2)
+                    temp = val;
+                else
+                    val = val + (2 * R * cosFilter * temp) + (R * R * temp2);
+               
+                soundOut.WriteNextFrame(val);
+            }
+          
+            
         }
         #endregion
     }

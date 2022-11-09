@@ -32,6 +32,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openScoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fileOutputItem = new System.Windows.Forms.ToolStripMenuItem();
             this.audioOutputItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,11 +41,11 @@
             this.playbackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.playToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveFileDlg = new System.Windows.Forms.SaveFileDialog();
-            this.openFileDlg = new System.Windows.Forms.OpenFileDialog();
             this.tasksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.songToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openScoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveFileDlg = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDlg = new System.Windows.Forms.OpenFileDialog();
+            this.squareWaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,7 +60,7 @@
             this.tasksToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1200, 35);
+            this.menuStrip1.Size = new System.Drawing.Size(1200, 33);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -75,9 +76,16 @@
             // exitItem
             // 
             this.exitItem.Name = "exitItem";
-            this.exitItem.Size = new System.Drawing.Size(270, 34);
+            this.exitItem.Size = new System.Drawing.Size(207, 34);
             this.exitItem.Text = "Exit";
             this.exitItem.Click += new System.EventHandler(this.exitItem_Click);
+            // 
+            // openScoreToolStripMenuItem
+            // 
+            this.openScoreToolStripMenuItem.Name = "openScoreToolStripMenuItem";
+            this.openScoreToolStripMenuItem.Size = new System.Drawing.Size(207, 34);
+            this.openScoreToolStripMenuItem.Text = "Open Score";
+            this.openScoreToolStripMenuItem.Click += new System.EventHandler(this.openScoreToolStripMenuItem_Click);
             // 
             // generateToolStripMenuItem
             // 
@@ -141,18 +149,11 @@
             this.stopToolStripMenuItem.Text = "Stop";
             this.stopToolStripMenuItem.Click += new System.EventHandler(this.stopToolStripMenuItem_Click);
             // 
-            // saveFileDlg
-            // 
-            this.saveFileDlg.Filter = "Wave Files (*.wav)|*.wav";
-            // 
-            // openFileDlg
-            // 
-            this.openFileDlg.Filter = "Score files (*.score)|*.score|All Files (*.*)|*.*";
-            // 
             // tasksToolStripMenuItem
             // 
             this.tasksToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.songToolStripMenuItem});
+            this.songToolStripMenuItem,
+            this.squareWaveToolStripMenuItem});
             this.tasksToolStripMenuItem.Name = "tasksToolStripMenuItem";
             this.tasksToolStripMenuItem.Size = new System.Drawing.Size(69, 29);
             this.tasksToolStripMenuItem.Text = "Tasks";
@@ -164,12 +165,20 @@
             this.songToolStripMenuItem.Text = "Song";
             this.songToolStripMenuItem.Click += new System.EventHandler(this.songToolStripMenuItem_Click);
             // 
-            // openScoreToolStripMenuItem
+            // saveFileDlg
             // 
-            this.openScoreToolStripMenuItem.Name = "openScoreToolStripMenuItem";
-            this.openScoreToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.openScoreToolStripMenuItem.Text = "Open Score";
-            this.openScoreToolStripMenuItem.Click += new System.EventHandler(this.openScoreToolStripMenuItem_Click);
+            this.saveFileDlg.Filter = "Wave Files (*.wav)|*.wav";
+            // 
+            // openFileDlg
+            // 
+            this.openFileDlg.Filter = "Score files (*.score)|*.score|All Files (*.*)|*.*";
+            // 
+            // squareWaveToolStripMenuItem
+            // 
+            this.squareWaveToolStripMenuItem.Name = "squareWaveToolStripMenuItem";
+            this.squareWaveToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.squareWaveToolStripMenuItem.Text = "Square wave";
+            this.squareWaveToolStripMenuItem.Click += new System.EventHandler(this.squareWaveToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -207,6 +216,7 @@
         private System.Windows.Forms.ToolStripMenuItem tasksToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem songToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openScoreToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem squareWaveToolStripMenuItem;
     }
 }
 

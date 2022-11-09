@@ -103,5 +103,11 @@ namespace Synthie
                 synth.OpenScore(openFileDlg.FileName);
             }
         }
+
+        private void squareWaveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            synth.GenerateSquare();
+            OnPostGeneration();
+        }
     }
 }
