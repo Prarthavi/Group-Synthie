@@ -10,26 +10,25 @@ namespace Synthie
     {
 
         private double attack;
-        private double release;
         private double sustain;
         private AudioNode source;
-        double gain;
-        double time;
-        double duration;
+        private double gain;
+        private double time;
+        private double duration;
+        private double speed;
         public AudioNode Source { get => source; set => source = value; }
         public double Duration { set => duration = value; }
         public double Sustain { set => sustain = value; }
+        public double Speed { set => speed = value; }
         public override bool Generate()
         {
-
+            //Envelope Logic
             if (time < attack)
-            {
-                gain = time / attack;
-            }
-            else if (duration - time < release)
-                gain = 1 + (duration - time - release) / (release);
+                gain = time / attack + speed;
+            else if (time < attack + sustain)
+                gain = 1 + speed / attack;
             else
-                gain = 1;
+                gain = 1 + speed - (time - attack - sustain) / (duration - attack - sustain);
             this.Frame()[0] = source.Frame()[0] * gain;
             this.Frame()[1] = source.Frame()[1] * gain;
             time += SamplePeriod;
@@ -40,7 +39,6 @@ namespace Synthie
         {
             time = 0;
             attack = 0.25;
-            release = 0.5;
             sustain = 0;
             duration *= source.SecsPerBeat;
         }

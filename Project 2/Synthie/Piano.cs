@@ -11,13 +11,15 @@ namespace Synthie
         private double duration;
         private string soundPath;
         private double time;
+        private double pedalTime;
         private int curFrame;
+        private double speed;       //This will determine how "hard" the key is hit
         private SoundStream soundVar;
         private PianoAR ar = new PianoAR();
 
         public double Duration { get => duration; }
         //public double Frequency { get => pwave.Frequency; set => pwave.Frequency = value; }
-
+        public double PedalTime { get => pedalTime; set => pedalTime = value; }
         public Piano() 
         {
             duration = 0.1;
@@ -52,24 +54,30 @@ namespace Synthie
         public override void Start() 
         {
             soundVar = new SoundStream(soundPath);
+
             
             time = 0;
             curFrame = 0;
+            pedalTime= 0;
 
             // Tell the AR obj where it gets its sample from
             // the soundVar obj.
             ar.Source = this;
+            ar.Speed = speed;
             ar.SampleRate = SampleRate;
             ar.Duration = duration;
             ar.SamplePeriod = samplePeriod;
+            ar.Sustain = pedalTime;
             ar.Start();
         }
 
         public override void SetNote(Note note, double secperbeat)
         {
-            duration = note.Count;
+            duration = note.Count + note.PedalSus;
             this.SecsPerBeat = secperbeat;
             soundPath = PianoNotes.NoteToFile(note.Pitch);
+            pedalTime = note.PedalSus;
+            speed = note.Speed;
         }
     }
 }

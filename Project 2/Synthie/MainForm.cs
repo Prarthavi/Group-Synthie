@@ -108,5 +108,10 @@ namespace Synthie
         {
             synth.Generate();
         }
+
+        private void envelopesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            synth.Generate();
+        }
     }
 }

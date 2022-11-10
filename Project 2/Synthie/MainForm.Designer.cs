@@ -214,6 +214,7 @@
             this.envelopesToolStripMenuItem.Name = "envelopesToolStripMenuItem";
             this.envelopesToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
             this.envelopesToolStripMenuItem.Text = "Envelopes";
+            this.envelopesToolStripMenuItem.Click += new System.EventHandler(this.envelopesToolStripMenuItem_Click);
             // 
             // pedalSimulationBasicToolStripMenuItem
             // 

@@ -128,6 +128,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="res\pianoTest1.score" />
+    <None Include="res\pianoTestPedal.score" />
     <None Include="res\test1.score" />
     <None Include="res\test2.score" />
   </ItemGroup>
