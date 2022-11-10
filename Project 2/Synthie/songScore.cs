@@ -95,6 +95,10 @@ namespace Synthie
                 {
                     instrument = new ToneInstrument();
                 }
+                else if (note.Instrument == "AdditiveInstrument")
+                {
+                    instrument = new ToneInstrument();
+                }
 
                 // Configure the instrument object
                 if (instrument != null)

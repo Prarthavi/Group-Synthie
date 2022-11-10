@@ -76,6 +76,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdditiveInstrument.cs" />
     <Compile Include="AR.cs" />
     <Compile Include="AudioNode.cs" />
     <Compile Include="Instrument.cs" />
