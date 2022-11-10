@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -103,6 +103,11 @@ namespace Synthie
                 {
                     instrument = new AdditiveInstrument();
                 }
+                 else if (note.Instrument == "SubtractiveInstrument")
+                {
+                    instrument = new SubtractiveInstrument();
+                }
+
                 /*
                 else if (note.Instrument == "AdditiveCrossfadingInstrument")
                 {
