@@ -104,10 +104,14 @@ namespace Synthie
             }
         }
 
-        private void squareWaveToolStripMenuItem_Click(object sender, EventArgs e)
+        private void pianoSynthesizerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            synth.GenerateSquare();
+            synth.Generate();
+        }
+
+        private void additiveSynthesiserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            synth.Generate();
             OnPostGeneration();
         }
-    }
 }

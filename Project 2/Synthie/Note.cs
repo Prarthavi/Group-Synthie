@@ -14,20 +14,23 @@ namespace Synthie
         private double beat;
         private double count;
         private string pitch;
-        private string waveType;
-        private Boolean filterEnvelope;
-        private double r;
-        private double resonFreq;
+        private double pedalSus;
+        private double speed; 
+
+        //private string pitch2;
+        private double vibrato;
 
         public double Beat { get => beat; }
         public double Count { get => count; }
         public string Instrument { get => instrument; }
         public int Measure { get => measure; }
         public string Pitch { get => pitch; }
-        public string WaveType { get => waveType; }
-        public double R { get => r; }
-        public double ResonFreq { get => resonFreq; }
-        public Boolean FilterEnvelope { get => filterEnvelope;}
+        public double PedalSus { get => pedalSus; }
+
+        public double Speed { get => speed; }
+        //public string Pitch2 { get => pitch2; }
+        public double Vibrato { get => vibrato; }
+
         public Note()
         {
 
@@ -71,22 +74,26 @@ namespace Synthie
                 {
                     pitch = attr.Value;
                 }
-                if (attr.Name == "waveType")
+
+                if (attr.Name == "sustain")
                 {
-                    waveType = attr.Value;
+                    pedalSus = Convert.ToDouble(attr.Value);
                 }
-                if (attr.Name == "filterEnvelope")
+
+                if (attr.Name == "speed")
                 {
-                    filterEnvelope = attr.Value == "true" ? true : false;
+                    speed = Convert.ToDouble(attr.Value);
                 }
-                if (attr.Name == "Radius")
+                if(attr.Name == "vibrato")
                 {
-                    r = Convert.ToDouble(attr.Value);
+                    vibrato = Convert.ToDouble(attr.Value);
                 }
-                if (attr.Name == "ResonFreq")
+
+                /*
+                if(attr.Name == "note2")
                 {
-                    resonFreq = Convert.ToDouble(attr.Value);
-                }
+                    pitch2 = attr.Value;
+                }*/
             }
         }
     }

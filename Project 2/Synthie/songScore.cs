@@ -95,8 +95,20 @@ namespace Synthie
                 {
                     instrument = new ToneInstrument();
                 }
-                else if(note.Instrument == "SubtractiveInstrument")
-                    instrument = new SubtractiveInstrument();
+                else if (note.Instrument == "Piano")
+                {
+                    instrument = new Piano();
+                }
+                else if (note.Instrument == "AdditiveInstrument")
+                {
+                    instrument = new AdditiveInstrument();
+                }
+                /*
+                else if (note.Instrument == "AdditiveCrossfadingInstrument")
+                {
+                    instrument = new AdditiveCrossfadingInstrument();
+                }*/
+
                 // Configure the instrument object
                 if (instrument != null)
                 {

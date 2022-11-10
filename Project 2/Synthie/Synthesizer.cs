@@ -83,9 +83,6 @@ namespace Synthie
             }
         }
         
-
-
-        
         public void OnPaint(Graphics g)
         {
             //TODO if desired
