@@ -100,11 +100,11 @@ namespace Synthie
                 {
                     pitch2 = attr.Value;
                 }*/
-                if((attr.Name == "ResonFreq")
+                if(attr.Name == "ResonFreq")
                 {
                     resonFreq = Convert.ToDouble(attr.Value);
                 }
-                if((attr.Name == "waveType")
+                if(attr.Name == "waveType")
                 {
                    waveType = attr.Value;
                 }
