@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Lifetime;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,7 +12,12 @@ namespace Synthie
         private double duration;
         private SineWave sinewave = new SineWave();
         private double time;
-        private AR ar = new AR();
+        private double attack = 0.05;
+        private double decay = 0.05;
+        private double sustain = 0.8;
+        private double release = 0.05;
+
+
         public double Frequency { get => sinewave.Frequency; set => sinewave.Frequency = value; }
 
         public double Duration { get => duration; }
@@ -21,8 +27,7 @@ namespace Synthie
         }
         public override void SetNote(Note note, double secperbeat)
         {
-            duration = note.Count;
-            this.SecsPerBeat = secperbeat;
+            duration = note.Count * secperbeat;
             Frequency = Notes.NoteToFrequency(note.Pitch);
         }
         public override bool Generate()
@@ -31,10 +36,20 @@ namespace Synthie
             sinewave.Generate();
             frame = sinewave.Frame();
 
-            ar.Generate();
+            double gain;
 
-            frame[0] = ar.Frame(0);      //pull the adjusted sample
-            frame[1] = ar.Frame(1);
+            if (time < attack)
+                gain = time / attack;
+            else if (time < attack + decay)
+                gain = 1 - ((time - attack) / decay) * (1 - sustain);
+            else if (time < duration - release)
+                gain = sustain;
+            else
+                gain = sustain * (duration - time) / release;
+
+
+            frame[0] = sinewave.Frame(0) * gain;      //pull the adjusted sample
+            frame[1] = sinewave.Frame(1) * gain;
 
             // Read the component's sample and make it our resulting frame.
 
@@ -42,7 +57,7 @@ namespace Synthie
             time += samplePeriod;
 
             // We return true until the time reaches the duration.
-            return time < duration * this.SecsPerBeat;
+            return time < duration;
         }
 
         public override void Start()
@@ -50,14 +65,6 @@ namespace Synthie
             sinewave.SampleRate = SampleRate;
             sinewave.Start();
             time = 0;
-
-            // Tell the AR object where it gets its samples from 
-            // the sine wave object.
-            ar.Source = this;
-            ar.SampleRate = SampleRate;
-            ar.Duration = duration;
-            ar.SamplePeriod = samplePeriod;
-            ar.Start();
         }
     }
 }
