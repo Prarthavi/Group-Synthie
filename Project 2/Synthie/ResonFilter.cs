@@ -18,40 +18,21 @@ namespace Synthie
         private int count = 0;
         private float prev = 0;
         private float prev2 = 0;
-        private float R = 0.7f;
+        private float r = 0.7f;
         private float cosFilter = 0f;
         private double x1, y1, x2, y2 = 0;
         private List<double> table;
         private float freq;
+        private float filterFreq;
         public  float Frequency{get => freq; set => freq = value;}
+        public float R { get => r; set => r = value; }
+        public float FilterFreq  {get => filterFreq; set => filterFreq = value; }
         private int index = 0;
         private int cnt = 0;
-        public ResonFilter(double f)
+        public ResonFilter()
         {
-           float theta = (float)(2 * Math.PI * f);
-            cosFilter = (float)Math.Cos(theta);
-            double b = R * cosFilter;
-            double a = 1;
-            double c = R * R;
-            table = new List<double>();
-            double d = (b * b) - (4 * a * c);
-            if(d > 0)
-            {
-                x1 = -b + (Math.Sqrt(d)/2 * a);
-                x2 = -b - (Math.Sqrt(d)/2 * a);
-            }
-            if (d < 0)
-            {
-                x1 = -b / (2 * a);
-                y1 = Math.Sqrt(-1 * d) / (2 * a);
-                x2 = -b / (2 * a);
-                y2 = -y1;
-            }
-            else
-            {
-                x1 = -b + (Math.Sqrt(d) / 2 * a);
-            }
-    }
+          
+        }
 
         public override bool Generate()
         {
@@ -86,10 +67,34 @@ namespace Synthie
             //return result;
 
         }
-
+        
         public override void Start()
         {
-            for(double i = 0; i < 1/ freq; i+= samplePeriod)
+            float theta = (float)(2 * Math.PI * filterFreq);
+            cosFilter = (float)Math.Cos(theta);
+            double b = R * cosFilter;
+            double a = 1;
+            double c = R * R;
+            table = new List<double>();
+            double d = (b * b) - (4 * a * c);
+            if (d > 0)
+            {
+                x1 = -b + (Math.Sqrt(d) / 2 * a);
+                x2 = -b - (Math.Sqrt(d) / 2 * a);
+            }
+            if (d < 0)
+            {
+                x1 = -b / (2 * a);
+                y1 = Math.Sqrt(-1 * d) / (2 * a);
+                x2 = -b / (2 * a);
+                y2 = -y1;
+            }
+            else
+            {
+                x1 = -b + (Math.Sqrt(d) / 2 * a);
+            }
+
+            for (double i = 0; i < 1/ freq; i+= samplePeriod)
             {
                 table.Add(getAmplitude((float)i));
             }

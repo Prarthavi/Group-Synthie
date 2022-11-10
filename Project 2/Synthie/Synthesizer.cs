@@ -64,22 +64,21 @@ namespace Synthie
         /// </summary>
         public void OnGenerate1000hztone()
         {
-            ResonFilter reson = new ResonFilter(0.2);
+            //ResonFilter reson = new ResonFilter();
+            SawToothWaves w = new SawToothWaves();
             if (soundOut == null)
-                soundOut = new SoundStream(tempFilePath, 'w', 44100, 1);
+                soundOut = new SoundStream(tempFilePath, 'w', 22000, 1);
 
             double freq = 1000;
             double duration = 5;
             double frameDuration = 1.0 / soundOut.SampleRate;
-            FilterEnvelope f = new FilterEnvelope();
+            
             float val;
-            for (double time = 11025; time < 44100; time++)
+            for (double time = 0; time < duration ; time+=frameDuration)
             {
-                //val = (float)(Math.Sin(time * 2 * Math.PI * freq));
-                 f.Generate();
-               
-                val = (float)( reson.getAmplitude((float)(time / soundOut.SampleRate)));
-               
+
+                w.Generate();
+                val = (float)(w.Frame()[0]);
                 soundOut.WriteNextFrame(val);
             }
         }

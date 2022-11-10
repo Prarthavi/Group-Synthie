@@ -39,7 +39,7 @@ namespace Synthie
             time = 0;
             attack = 0.05;
             release = 0.05;
-            duration = source.SecsPerBeat;
+            duration *= source.SecsPerBeat;
         }
         
     }

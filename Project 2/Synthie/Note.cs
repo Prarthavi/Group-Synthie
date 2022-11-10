@@ -16,13 +16,17 @@ namespace Synthie
         private string pitch;
         private string waveType;
         private Boolean filterEnvelope;
+        private double r;
+        private double resonFreq;
+
         public double Beat { get => beat; }
         public double Count { get => count; }
         public string Instrument { get => instrument; }
         public int Measure { get => measure; }
         public string Pitch { get => pitch; }
         public string WaveType { get => waveType; }
-
+        public double R { get => r; }
+        public double ResonFreq { get => resonFreq; }
         public Boolean FilterEnvelope { get => filterEnvelope;}
         public Note()
         {
@@ -74,6 +78,14 @@ namespace Synthie
                 if (attr.Name == "filterEnvelope")
                 {
                     filterEnvelope = attr.Value == "true" ? true : false;
+                }
+                if (attr.Name == "Radius")
+                {
+                    r = Convert.ToDouble(attr.Value);
+                }
+                if (attr.Name == "ResonFreq")
+                {
+                    resonFreq = Convert.ToDouble(attr.Value);
                 }
             }
         }

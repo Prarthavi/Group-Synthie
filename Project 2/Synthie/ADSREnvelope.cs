@@ -27,14 +27,14 @@ namespace Synthie
 
         public double GetAmplitude(double currTime)
         {
-            double amp;
+            double amp = 0;
             if (currTime < attack)
             {
                 amp = currTime / attack;
             }
             else if (currTime < attack + decay)
             {
-                amp = 1 - ((currTime - attack) / decay) * (1 - sustain);
+                amp = 1 - ((currTime - attack) / decay) * (1 - sustain) ;
             }
             else if (currTime < totalDuration - release)
             {
@@ -42,7 +42,7 @@ namespace Synthie
             }
             else
             {
-                amp = sustain * ((totalDuration - currTime) / release);
+                amp =  ((totalDuration - currTime) / release);
             }
 
             return amp;
