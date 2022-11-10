@@ -9,6 +9,7 @@ using System.Runtime.Remoting.Lifetime;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Synthie
 {
@@ -18,6 +19,10 @@ namespace Synthie
         private SineWave sinewave = new SineWave();
         private double time;
         private AR ar = new AR();
+        private float attack = 0.15f;
+        private float decay = 0.15f;
+        private float sustain = 0.40f;
+        private float release = 0.20f;
         public double Frequency { get => sinewave.Frequency; set => sinewave.Frequency = value; }
 
         public double Duration { get => duration; }
@@ -27,7 +32,9 @@ namespace Synthie
         }
         public override void SetNote(Note note,double secperbeat)
         {
+            
             duration = note.Count;
+
             this.SecsPerBeat = secperbeat;
             Frequency = Notes.NoteToFrequency(note.Pitch);
         }
@@ -37,10 +44,21 @@ namespace Synthie
             sinewave.Generate();
             frame = sinewave.Frame();
 
-            ar.Generate();
+            float gain;
 
-            frame[0] = ar.Frame(0);      //pull the adjusted sample
-            frame[1] = ar.Frame(1);
+            if (time < attack)
+                gain = (float)time / attack;
+            else if (time < attack + decay)
+                gain = 1 - (((float)time - attack) / decay) * (1 - sustain);
+            else if (time < duration - release)
+                gain = sustain;
+            else
+                gain = sustain * ((float)duration - (float)time) / release;
+
+          
+            frame[0] = gain * frame[0];
+            frame[1] = gain * frame[1];
+
 
             // Read the component's sample and make it our resulting frame.
 

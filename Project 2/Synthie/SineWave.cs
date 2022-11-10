@@ -54,5 +54,9 @@ namespace Synthie
         {
             phase = 0;
         }
+        public float generated()
+        {
+            return (float)frame[0];
+        }
     }
 }

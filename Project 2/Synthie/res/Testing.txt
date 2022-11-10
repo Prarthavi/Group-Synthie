@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<score bpm="88" beatspermeasure="4">
+   <instrument instrument="SubtractiveInstrument">
+      <note measure="1" beat="1" count="0.5" note="D3" waveType="Sawtooth"/>
+      <note measure="2" beat="1" count="0.5" note="B2" waveType="Square"/>
+      <note measure="2" beat="2" count="0.5" note="F#2" waveType="Triangle"/>
+      <note measure="3" beat="2" count="0.5" note="G2" waveType="Sawtooth" filterEnvelope="true" Radius="0.9" ResonFreq="0.35"/>
+      <note measure="3" beat="1" count="0.5" note="G2" waveType="Sawtooth" filterEnvelope="true" Radius="0.5" ResonFreq="0.27"/>
+      <note measure="4" beat="1" count="0.5" note="G2" waveType="Sawtooth" filterEnvelope="true" Radius="0.9" ResonFreq="0.44"/>
+      <note measure="4" beat="1" count="0.5" note="A2" waveType="Triangle"/>
+      <note measure="5" beat="1" count="0.5" note="D3" waveType="Square"/>
+      <note measure="5" beat="3" count="0.5" note="A2" waveType="Triangle" filterEnvelope="true" Radius="0.9" ResonFreq="0.44"/>
+      <note measure="5" beat="3" count="0.5" note="F#5" Radius="0.5" ResonFreq="0.34"/>   
+      <note measure="5" beat="1" count="0.5" note="E5" waveType="Sawtooth" filterEnvelope="true" Radius="0.9" ResonFreq="0.44"/>
+      <note measure="5" beat="3" count="0.5" note="D5" Radius="0.5" ResonFreq="0.34"/> 
+      <note measure="5" beat="1" count="0.5" note="C#5" waveType="Square" filterEnvelope="true" Radius="0.9" ResonFreq="0.44"/>
+      <note measure="6" beat="1" count="0.5" note="A4" Radius="0.5" ResonFreq="0.34"/> 
+      <note measure="5" beat="3" count="0.5" note="G2" waveType="Triangle" filterEnvelope="true" Radius="0.8" ResonFreq="0.33"/>
+      <note measure="6" beat="1" count="0.5" note="D2" waveType="Triangle" filterEnvelope="true" Radius="0.2" ResonFreq="0.44"/> 
+      <note measure="6" beat="3" count="0.5" note="B4" waveType="Sawtooth" filterEnvelope="true" Radius="0.6" ResonFreq="0.24"/>
+      <note measure="6" beat="1" count="0.5" note="A4" waveType="Sawtooth" filterEnvelope="true" Radius="0.3" ResonFreq="0.14"/>
+      <note measure="6" beat="3" count="0.5" note="G4" waveType="Square" filterEnvelope="true" Radius="0.9" ResonFreq="0.44"/>
+   </instrument>
+</score>
