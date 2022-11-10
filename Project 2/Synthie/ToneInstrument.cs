@@ -27,7 +27,9 @@ namespace Synthie
         }
         public override void SetNote(Note note,double secperbeat)
         {
+            
             duration = note.Count;
+
             this.SecsPerBeat = secperbeat;
             Frequency = Notes.NoteToFrequency(note.Pitch);
         }

@@ -95,7 +95,8 @@ namespace Synthie
                 {
                     instrument = new ToneInstrument();
                 }
-
+                else if(note.Instrument == "SubtractiveInstrument")
+                    instrument = new SubtractiveInstrument();
                 // Configure the instrument object
                 if (instrument != null)
                 {

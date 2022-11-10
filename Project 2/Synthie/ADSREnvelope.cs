@@ -11,51 +11,38 @@ namespace Synthie
         private double attack;
         private double decay;
         private double release;
-        private double sustainAmp;
-
-        private double startDecayTime;
-        private double startSustainTime;
-        private double startReleaseTime;
+        private double sustain;
         private double totalDuration;
 
-        public ADSREnvelope(double noteDurationSec, double attackSec, double decaySec, double releaseSec, double sustainLevel)
+        public ADSREnvelope(double duration, double a, double d, double s, double r)
         {
-            totalDuration = noteDurationSec;
+            totalDuration = duration;
 
-            attack = attackSec;
-            decay = decaySec;
-            release = releaseSec;
-            sustainAmp = sustainLevel;
-
-            // Not strictly necessary, but nice for readability in gen function.
-            startDecayTime = attackSec;
-            startSustainTime = attackSec + decaySec;
-            startReleaseTime = totalDuration - releaseSec;
+            attack = a;
+            decay = d;
+            sustain = s;
+            release = r;
+            
         }
 
-        public double GetAmplitudeAtTime(double currTime)
+        public double GetAmplitude(double currTime)
         {
             double amp;
-
             if (currTime < attack)
             {
-                // Attack
                 amp = currTime / attack;
             }
             else if (currTime < attack + decay)
             {
-                // Decay
-                amp = 1 - ((currTime - attack) / decay) * (1 - sustainAmp);
+                amp = 1 - ((currTime - attack) / decay) * (1 - sustain);
             }
             else if (currTime < totalDuration - release)
             {
-                // Sustain
-                amp = sustainAmp;
+                amp = sustain;
             }
             else
             {
-                // Release
-                amp = sustainAmp * ((totalDuration - currTime) / release);
+                amp = sustain * ((totalDuration - currTime) / release);
             }
 
             return amp;

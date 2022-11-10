@@ -30,8 +30,7 @@ namespace Synthie
             triangleWaveTable = new List<double>();
             sawToothWaveTable = new List<double>();
             samplePeriod = sample;
-            //calculate the increase value using the number of samples and sample rate
-            // increase = ((float)(freq * size / sampleRate));
+
 
 
             //generate wavetable for the waveforms
@@ -51,10 +50,7 @@ namespace Synthie
                 //generate the triangle waveform value
                 for (int j = 1; (2 * j) + 1 < freq / 2; j++)
                 {
-
                     int n = (2 * j) + 1;
-
-
                     val2 += (float)(Math.Pow(-1, j) * (amp / (float)(n * n)) * Math.Sin(2 * Math.PI * n * i * freq));
 
                 }

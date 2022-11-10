@@ -14,14 +14,16 @@ namespace Synthie
         private double beat;
         private double count;
         private string pitch;
-
-
+        private string waveType;
+        private Boolean filterEnvelope;
         public double Beat { get => beat; }
         public double Count { get => count; }
         public string Instrument { get => instrument; }
         public int Measure { get => measure; }
         public string Pitch { get => pitch; }
+        public string WaveType { get => waveType; }
 
+        public Boolean FilterEnvelope { get => filterEnvelope;}
         public Note()
         {
 
@@ -64,6 +66,14 @@ namespace Synthie
                 if (attr.Name == "note")
                 {
                     pitch = attr.Value;
+                }
+                if (attr.Name == "waveType")
+                {
+                    waveType = attr.Value;
+                }
+                if (attr.Name == "filterEnvelope")
+                {
+                    filterEnvelope = attr.Value == "true" ? true : false;
                 }
             }
         }

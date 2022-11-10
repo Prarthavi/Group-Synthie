@@ -79,6 +79,7 @@
     <Compile Include="ADSREnvelope.cs" />
     <Compile Include="AR.cs" />
     <Compile Include="AudioNode.cs" />
+    <Compile Include="FilterEnvelope.cs" />
     <Compile Include="Instrument.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -97,6 +98,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResonFilter.cs" />
+    <Compile Include="SawToothWaves.cs" />
     <Compile Include="SineWave.cs" />
     <Compile Include="songScore.cs" />
     <Compile Include="Sound.cs" />
@@ -104,6 +106,7 @@
     <Compile Include="SoundStream.cs" />
     <Compile Include="SquareWaves.cs" />
     <Compile Include="Subtractive.cs" />
+    <Compile Include="SubtractiveInstrument.cs" />
     <Compile Include="Synthesizer.cs" />
     <Compile Include="ToneInstrument.cs" />
     <Compile Include="TriangleWaves.cs" />
