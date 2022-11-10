@@ -13,12 +13,14 @@ namespace Synthie
         private double decay;
         private double sustain;
         private double release;
+        private double amplitude;
         private AudioNode source;
         double gain;
         double time ;
         double duration;
         public AudioNode Source { get => source; set => source = value; }
         public double Duration { set => duration = value; }
+        public double Amplitude { set => amplitude = value; }
         public override bool Generate()
         {
 
@@ -29,11 +31,17 @@ namespace Synthie
             else if (time < duration - release)
                 gain = sustain;
             else
+<<<<<<< HEAD
+                gain = 1;
+            this.Frame()[0] = source.Frame()[0] * gain * amplitude;
+            this.Frame()[1] = source.Frame()[1] * gain * amplitude;
+=======
                 gain = sustain * (duration - time) / release;
                 //gain = 1 + (duration - time - release) / (release);
            
             this.Frame()[0] = source.Frame()[0] * gain;
             this.Frame()[1] = source.Frame()[1] * gain;
+>>>>>>> main
             time += SamplePeriod;
             return true;
         }

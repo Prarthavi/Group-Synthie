@@ -50,6 +50,7 @@ namespace Synthie
             this.effectsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDlg = new System.Windows.Forms.SaveFileDialog();
             this.openFileDlg = new System.Windows.Forms.OpenFileDialog();
+            this.playSampleDrums = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -196,6 +197,8 @@ namespace Synthie
             // 
             // drumsSynthesizerToolStripMenuItem
             // 
+            this.drumsSynthesizerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.playSampleDrums});
             this.drumsSynthesizerToolStripMenuItem.Name = "drumsSynthesizerToolStripMenuItem";
             this.drumsSynthesizerToolStripMenuItem.Size = new System.Drawing.Size(116, 20);
             this.drumsSynthesizerToolStripMenuItem.Text = "Drums Synthesizer";
@@ -213,6 +216,13 @@ namespace Synthie
             // openFileDlg
             // 
             this.openFileDlg.Filter = "Score files (*.score)|*.score|All Files (*.*)|*.*";
+            // 
+            // playSampleDrums
+            // 
+            this.playSampleDrums.Name = "playSampleDrums";
+            this.playSampleDrums.Size = new System.Drawing.Size(224, 26);
+            this.playSampleDrums.Text = "Play Sample";
+            this.playSampleDrums.Click += new System.EventHandler(this.playSampleDrums_Click);
             // 
             // MainForm
             // 
@@ -254,6 +264,7 @@ namespace Synthie
         private System.Windows.Forms.ToolStripMenuItem pianoSynthesizerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem drumsSynthesizerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem effectsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem playSampleDrums;
     }
 }
 
