@@ -1,4 +1,4 @@
-﻿//Mark off what items are complete (e.g. x, done, checkmark, etc), and put a P if partially complete. If 'P' include how to test what is working for partial credit below the checklist line.
+//Mark off what items are complete (e.g. x, done, checkmark, etc), and put a P if partially complete. If 'P' include how to test what is working for partial credit below the checklist line.
 
 //Total available points:  100
 
@@ -114,4 +114,5 @@ namespace Synthie
             synth.Generate();
             OnPostGeneration();
         }
+    }
 }
