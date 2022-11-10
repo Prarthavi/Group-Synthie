@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,7 +19,10 @@ namespace Synthie
 
         //private string pitch2;
         private double vibrato;
-
+        private string waveType;
+          private Boolean filterEnvelope;
+          private double r;
+        private double resonFreq;
         public double Beat { get => beat; }
         public double Count { get => count; }
         public string Instrument { get => instrument; }
@@ -30,7 +33,10 @@ namespace Synthie
         public double Speed { get => speed; }
         //public string Pitch2 { get => pitch2; }
         public double Vibrato { get => vibrato; }
-
+        public double R { get => r; }
+        public double ResonFreq { get => r; }
+        public Boolean FilterEnvelope { get => filterEnvelope;}
+         public string WaveType { get => waveType; }
         public Note()
         {
 
@@ -94,6 +100,22 @@ namespace Synthie
                 {
                     pitch2 = attr.Value;
                 }*/
+                if((attr.Name == "ResonFreq")
+                {
+                    resonFreq = Convert.ToDouble(attr.Value);
+                }
+                if((attr.Name == "waveType")
+                {
+                   waveType = attr.Value;
+                }
+                 if (attr.Name == "Radius")
+                {
+                    r = Convert.ToDouble(attr.Value);
+                }
+                if(attr.Name == "filterEnvelope")
+                {
+                    filterEnvelope = attr.Value == "true" ? true : false;
+                }
             }
         }
     }
