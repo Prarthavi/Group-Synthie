@@ -16,9 +16,11 @@ namespace Synthie
     {
         private double duration;
         private SineWave sinewave = new SineWave();
+        private double amplitude;
         private double time;
         private AR ar = new AR();
         public double Frequency { get => sinewave.Frequency; set => sinewave.Frequency = value; }
+        public double Amplitude { get => amplitude; set => amplitude = value; }
 
         public double Duration { get => duration; }
         public ToneInstrument()
@@ -29,7 +31,8 @@ namespace Synthie
         {
             duration = note.Count;
             this.SecsPerBeat = secperbeat;
-            Frequency = Notes.NoteToFrequency(note.Pitch);
+            Frequency = note.Freq;
+            Amplitude = note.Amplitude;
         }
         public override bool Generate()
         {
@@ -63,6 +66,7 @@ namespace Synthie
             ar.SampleRate = SampleRate;
             ar.Duration = duration;
             ar.SamplePeriod = samplePeriod;
+            ar.Amplitude = amplitude;
             ar.Start();
         }
     }

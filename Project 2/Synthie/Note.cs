@@ -14,13 +14,19 @@ namespace Synthie
         private double beat;
         private double count;
         private string pitch;
+        private double freq;
+        private double amplitude;
+        private string effect;
 
 
-        public double Beat { get => beat; }
-        public double Count { get => count; }
-        public string Instrument { get => instrument; }
-        public int Measure { get => measure; }
-        public string Pitch { get => pitch; }
+        public double Beat { get => beat; set => beat = value; }
+        public double Count { get => count; set => count = value; }
+        public string Instrument { get => instrument; set => instrument = value; }
+        public int Measure { get => measure; set => measure = value; }
+        public string Pitch { get => pitch; set => pitch = value; }
+        public double Freq { get => freq; set => freq = value; }
+        public double Amplitude { get => amplitude; set => amplitude = value; }
+        public string Effect { get => effect; set => effect = value; }
 
         public Note()
         {
@@ -63,7 +69,18 @@ namespace Synthie
 
                 if (attr.Name == "note")
                 {
-                    pitch = attr.Value;
+                    pitch = attr.Value; 
+                    freq = Notes.NoteToFrequency(pitch);
+                }
+
+                if (attr.Name == "amplitude")
+                {
+                    amplitude = Convert.ToDouble(attr.Value);
+                }
+
+                if (attr.Name == "effect")
+                {
+                    effect = attr.Value;
                 }
             }
         }

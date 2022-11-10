@@ -109,6 +109,64 @@ namespace Synthie
 
                     instruments.Add(instrument);
                 }
+                
+                //EFFECTS PROCESSING HERE
+                if (note.Effect != "") //If effect then process effect
+                {
+                    //create a new note for the effect
+                    Note newNote = new Note();
+                    newNote = note;
+                    switch (note.Effect)
+                    {
+                        case "Chorus":
+                            newNote.Effect = "";
+                            newNote.Amplitude /= 5;
+                            for (int i = 0; i < 10; i ++)
+                            {
+                                Note newNote3 = new Note();
+                                newNote3 = note;
+                                newNote3.Beat = note.Beat + i * 5 * SamplePeriod;
+                                newNote3.Freq = note.Freq + i;
+                                notes.Add(newNote3);
+                            }
+                            break;
+                        case "Reverb":
+                            //newNote.Effect = "";
+                            //newNote.Amplitude /= 5;
+                            while ((newNote.Amplitude ) > 0.01)
+                            {
+                                newNote.Amplitude *= 0.95;
+                                newNote.Beat += newNote.Count * 0.2;
+                                Note newNote3 = new Note();
+                                newNote3 = newNote;
+                                notes.Add(newNote3);
+                            }
+                            break;
+                        case "Flanging":
+                            newNote = note;
+                            Note newNote2 = new Note();
+                            newNote2 = note;
+                            note.Effect = "";
+                            newNote.Beat += 2 * SamplePeriod;
+                            newNote2.Beat += 50 * SamplePeriod;
+                            newNote.Count -= 2 * SamplePeriod;
+                            newNote2.Count -= 50 * SamplePeriod;
+
+
+                            notes.Add(newNote);
+                            notes.Add(newNote2);
+                            break;
+                        case "ZeroFilter":
+                            note.Effect = "";
+                            newNote = note;
+                            newNote.Freq += 1;
+                            notes.Add(newNote);
+                            break;
+                        default:
+                            break;
+                    }
+
+                }
 
                 currentNote++;
             }

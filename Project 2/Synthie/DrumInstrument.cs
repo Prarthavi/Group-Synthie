@@ -16,11 +16,10 @@ namespace Synthie
         private const double rel = 0.05;
         private string type;
         private float[] tmp = new float[2];
-        private SineWave sinewave = new SineWave();
         private SoundStream soundFile;
         private double time;
         private ADSR adsr = new ADSR(atk, del, sus, rel);
-        public double Frequency { get => sinewave.Frequency; set => sinewave.Frequency = value; }
+        //public double Frequency { get => sinewave.Frequency; set => sinewave.Frequency = value; }
 
         public double Duration { get => duration; }
         public DrumInstrument(string name)
@@ -31,7 +30,7 @@ namespace Synthie
         {
             duration = note.Count;
             this.SecsPerBeat = secperbeat;
-            Frequency = Notes.NoteToFrequency(note.Pitch);
+            //Frequency = Notes.NoteToFrequency(note.Pitch);
         }
         public override bool Generate() //Example
         {
