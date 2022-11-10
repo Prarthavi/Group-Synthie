@@ -1,4 +1,4 @@
-﻿namespace Synthie
+namespace Synthie
 {
     partial class MainForm
     {
@@ -162,8 +162,7 @@
             // tasksToolStripMenuItem
             // 
             this.tasksToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.songToolStripMenuItem,
-            this.squareWaveToolStripMenuItem});
+            this.songToolStripMenuItem});
             this.tasksToolStripMenuItem.Name = "tasksToolStripMenuItem";
             this.tasksToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.tasksToolStripMenuItem.Text = "Tasks";
