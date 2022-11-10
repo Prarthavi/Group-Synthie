@@ -14,13 +14,16 @@ namespace Synthie
         private double beat;
         private double count;
         private string pitch;
-
+        //private string pitch2;
+        private double vibrato;
 
         public double Beat { get => beat; }
         public double Count { get => count; }
         public string Instrument { get => instrument; }
         public int Measure { get => measure; }
         public string Pitch { get => pitch; }
+        //public string Pitch2 { get => pitch2; }
+        public double Vibrato { get => vibrato; }
 
         public Note()
         {
@@ -65,6 +68,17 @@ namespace Synthie
                 {
                     pitch = attr.Value;
                 }
+
+                if(attr.Name == "vibrato")
+                {
+                    vibrato = Convert.ToDouble(attr.Value);
+                }
+
+                /*
+                if(attr.Name == "note2")
+                {
+                    pitch2 = attr.Value;
+                }*/
             }
         }
     }

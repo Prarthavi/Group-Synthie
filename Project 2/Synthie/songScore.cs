@@ -97,8 +97,13 @@ namespace Synthie
                 }
                 else if (note.Instrument == "AdditiveInstrument")
                 {
-                    instrument = new ToneInstrument();
+                    instrument = new AdditiveInstrument();
                 }
+                /*
+                else if (note.Instrument == "AdditiveCrossfadingInstrument")
+                {
+                    instrument = new AdditiveCrossfadingInstrument();
+                }*/
 
                 // Configure the instrument object
                 if (instrument != null)
