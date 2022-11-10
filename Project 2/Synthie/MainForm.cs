@@ -104,12 +104,7 @@ namespace Synthie
             }
         }
 
-        private void polyphonyToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            synth.Generate();
-        }
-
-        private void envelopesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void pianoSynthesizerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             synth.Generate();
         }

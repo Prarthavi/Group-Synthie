@@ -18,7 +18,6 @@ namespace Synthie
         private PianoAR ar = new PianoAR();
 
         public double Duration { get => duration; }
-        //public double Frequency { get => pwave.Frequency; set => pwave.Frequency = value; }
         public double PedalTime { get => pedalTime; set => pedalTime = value; }
         public Piano() 
         {
@@ -44,6 +43,18 @@ namespace Synthie
 
             frame[0] = ar.Frame(0);
             frame[1] = ar.Frame(1);
+
+            if (pedalTime > 0.0)
+            {
+                soundVar = new SoundStream(PianoNotes.NoteToFile("Pedal"));
+
+                ar.Generate();
+
+                frame[0] += ar.Frame(0);
+                frame[1] += ar.Frame(1);
+            }
+
+            
 
             time += samplePeriod;
             curFrame++;

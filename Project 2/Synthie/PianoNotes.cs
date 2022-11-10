@@ -34,7 +34,8 @@ namespace Synthie
             { "Bb6", "../../res/PianoSounds/A6#s.wav"}, { "B6", "../../res/PianoSounds/B6l.wav"}, { "C7", "../../res/PianoSounds/C7l.wav"}, { "C#7", "../../res/PianoSounds/C7#l.wav"}, { "Db7", "../../res/PianoSounds/C7#s.wav"},
             { "D7", "../../res/PianoSounds/D7l.wav"}, { "D#7", "../../res/PianoSounds/D7#l.wav"}, { "Eb7", "../../res/PianoSounds/D7#s.wav"}, { "E7", "../../res/PianoSounds/E7l.wav"}, { "F7", "../../res/PianoSounds/F7l.wav"},
             { "F#7", "../../res/PianoSounds/F7#l.wav"}, { "Gb7", "../../res/PianoSounds/F7#s.wav"}, { "G7", "../../res/PianoSounds/G7l.wav"}, { "G#7", "../../res/PianoSounds/G7#l.wav"}, { "Ab7", "../../res/PianoSounds/G7#s.wav"},
-            { "A7", "../../res/PianoSounds/A7l.wav"}, { "A#7", "../../res/PianoSounds/A7#l.wav"}, { "Bb7", "../../res/PianoSounds/A7#l.wav"}, { "B7", "../../res/PianoSounds/B7l.wav"}, { "C8", "../../res/PianoSounds/C8l.wav"}};
+            { "A7", "../../res/PianoSounds/A7l.wav"}, { "A#7", "../../res/PianoSounds/A7#l.wav"}, { "Bb7", "../../res/PianoSounds/A7#l.wav"}, { "B7", "../../res/PianoSounds/B7l.wav"}, { "C8", "../../res/PianoSounds/C8l.wav"},
+            { "Pedal", "../../res/PianoSounds/pedalu.wav" } };
 
         public static string NoteToFile(string name)
         {

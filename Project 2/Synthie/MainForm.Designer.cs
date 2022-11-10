@@ -46,11 +46,6 @@
             this.additiveSynthesiserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.subtractiveSynthesizerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pianoSynthesizerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.polyphonyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.envelopesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pedalSimulationBasicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pedalSimulationAdvancedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pedalNoiseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.drumsSynthesizerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.effectsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDlg = new System.Windows.Forms.SaveFileDialog();
@@ -192,47 +187,10 @@
             // 
             // pianoSynthesizerToolStripMenuItem
             // 
-            this.pianoSynthesizerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.polyphonyToolStripMenuItem,
-            this.envelopesToolStripMenuItem,
-            this.pedalSimulationBasicToolStripMenuItem,
-            this.pedalSimulationAdvancedToolStripMenuItem,
-            this.pedalNoiseToolStripMenuItem});
             this.pianoSynthesizerToolStripMenuItem.Name = "pianoSynthesizerToolStripMenuItem";
             this.pianoSynthesizerToolStripMenuItem.Size = new System.Drawing.Size(111, 20);
             this.pianoSynthesizerToolStripMenuItem.Text = "Piano Synthesizer";
-            // 
-            // polyphonyToolStripMenuItem
-            // 
-            this.polyphonyToolStripMenuItem.Name = "polyphonyToolStripMenuItem";
-            this.polyphonyToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
-            this.polyphonyToolStripMenuItem.Text = "Polyphony";
-            this.polyphonyToolStripMenuItem.Click += new System.EventHandler(this.polyphonyToolStripMenuItem_Click);
-            // 
-            // envelopesToolStripMenuItem
-            // 
-            this.envelopesToolStripMenuItem.Name = "envelopesToolStripMenuItem";
-            this.envelopesToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
-            this.envelopesToolStripMenuItem.Text = "Envelopes";
-            this.envelopesToolStripMenuItem.Click += new System.EventHandler(this.envelopesToolStripMenuItem_Click);
-            // 
-            // pedalSimulationBasicToolStripMenuItem
-            // 
-            this.pedalSimulationBasicToolStripMenuItem.Name = "pedalSimulationBasicToolStripMenuItem";
-            this.pedalSimulationBasicToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
-            this.pedalSimulationBasicToolStripMenuItem.Text = "Pedal Simulation (Basic)";
-            // 
-            // pedalSimulationAdvancedToolStripMenuItem
-            // 
-            this.pedalSimulationAdvancedToolStripMenuItem.Name = "pedalSimulationAdvancedToolStripMenuItem";
-            this.pedalSimulationAdvancedToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
-            this.pedalSimulationAdvancedToolStripMenuItem.Text = "Pedal Simulation (Advanced)";
-            // 
-            // pedalNoiseToolStripMenuItem
-            // 
-            this.pedalNoiseToolStripMenuItem.Name = "pedalNoiseToolStripMenuItem";
-            this.pedalNoiseToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
-            this.pedalNoiseToolStripMenuItem.Text = "Pedal Noise";
+            this.pianoSynthesizerToolStripMenuItem.Click += new System.EventHandler(this.pianoSynthesizerToolStripMenuItem_Click);
             // 
             // drumsSynthesizerToolStripMenuItem
             // 
@@ -294,11 +252,6 @@
         private System.Windows.Forms.ToolStripMenuItem pianoSynthesizerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem drumsSynthesizerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem effectsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem polyphonyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem envelopesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pedalSimulationBasicToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pedalSimulationAdvancedToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pedalNoiseToolStripMenuItem;
     }
 }
 

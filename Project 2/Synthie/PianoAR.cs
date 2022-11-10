@@ -40,6 +40,7 @@ namespace Synthie
             time = 0;
             attack = 0.25;
             sustain = 0;
+            speed = 0;
             duration *= source.SecsPerBeat;
         }
     }
