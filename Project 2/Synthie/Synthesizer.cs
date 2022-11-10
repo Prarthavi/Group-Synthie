@@ -148,11 +148,6 @@ namespace Synthie
             CalculateReson(0.2f);
 
         }
-
-        
-    
-
-
         
         public void OnPaint(Graphics g)
         {
