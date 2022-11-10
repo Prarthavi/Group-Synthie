@@ -55,6 +55,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
@@ -178,6 +179,7 @@
             this.additiveSynthesiserToolStripMenuItem.Name = "additiveSynthesiserToolStripMenuItem";
             this.additiveSynthesiserToolStripMenuItem.Size = new System.Drawing.Size(125, 20);
             this.additiveSynthesiserToolStripMenuItem.Text = "Additive Synthesiser";
+            this.additiveSynthesiserToolStripMenuItem.Click += new System.EventHandler(this.additiveSynthesiserToolStripMenuItem_Click);
             // 
             // subtractiveSynthesizerToolStripMenuItem
             // 

@@ -17,6 +17,8 @@ namespace Synthie
         private double pedalSus;
         private double speed; 
 
+        //private string pitch2;
+        private double vibrato;
 
         public double Beat { get => beat; }
         public double Count { get => count; }
@@ -26,6 +28,8 @@ namespace Synthie
         public double PedalSus { get => pedalSus; }
 
         public double Speed { get => speed; }
+        //public string Pitch2 { get => pitch2; }
+        public double Vibrato { get => vibrato; }
 
         public Note()
         {
@@ -80,6 +84,16 @@ namespace Synthie
                 {
                     speed = Convert.ToDouble(attr.Value);
                 }
+                if(attr.Name == "vibrato")
+                {
+                    vibrato = Convert.ToDouble(attr.Value);
+                }
+
+                /*
+                if(attr.Name == "note2")
+                {
+                    pitch2 = attr.Value;
+                }*/
             }
         }
     }
