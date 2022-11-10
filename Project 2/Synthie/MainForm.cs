@@ -103,5 +103,10 @@ namespace Synthie
                 synth.OpenScore(openFileDlg.FileName);
             }
         }
+
+        private void polyphonyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            synth.Generate();
+        }
     }
 }
