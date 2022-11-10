@@ -103,5 +103,25 @@ namespace Synthie
                 synth.OpenScore(openFileDlg.FileName);
             }
         }
+
+        private void playSampleDrums_Click(object sender, EventArgs e)
+        {
+            //SoundStream streamin = new SoundStream("../../res/Drums/Floor-Tom-1.wav");
+            //SoundStream soundOut = new SoundStream("output.wav", 'w' );
+
+            //while (streamin.IsNextFrameValid())
+            //{
+            //    float[] frame = streamin.ReadNextFrame();
+            //    float[] audio = new float[frame.Length];
+            //    for (int i = 0; i < 1; i++)
+            //        audio[i] = (float)Math.Min(1.0, Math.Max(-1.0, frame[i]));
+            //    soundOut.WriteNextFrame(audio);
+            //}
+
+            //soundOut.Close();
+            //streamin.Play();
+            synth.Generate();
+            OnPostGeneration();
+        }
     }
 }

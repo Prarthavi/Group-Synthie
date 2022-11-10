@@ -237,6 +237,14 @@ class SoundStream : Sound
         return ByteToFloat(temp);
     }
 
+    public bool IsNextFrameValid()
+    {
+        if (readerStream.Position >= readerStream.Length)
+            return false;
+        else
+            return true;
+    }
+
     override public void Seek(int i)
     {
         if (readerStream != null)

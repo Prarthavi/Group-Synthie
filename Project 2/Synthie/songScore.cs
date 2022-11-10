@@ -95,6 +95,10 @@ namespace Synthie
                 {
                     instrument = new ToneInstrument();
                 }
+                else if (note.Instrument.Substring(0,4) == "Drum")
+                {
+                    instrument = new DrumInstrument(note.Instrument);
+                }
 
                 // Configure the instrument object
                 if (instrument != null)
