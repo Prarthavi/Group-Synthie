@@ -10,6 +10,8 @@ namespace Synthie
     public class AR : AudioNode
     {
         private double attack;
+        private double decay;
+        private double sustain;
         private double release;
         private double amplitude;
         private AudioNode source;
@@ -23,15 +25,23 @@ namespace Synthie
         {
 
             if (time < attack)
-            {
                 gain = time / attack;
-            }
-            else if (duration - time < release)
-                gain = 1 + (duration - time - release) / (release);
+            else if (time < attack + decay)
+                gain = 1 - ((time - attack) / decay) * (1 - sustain);
+            else if (time < duration - release)
+                gain = sustain;
             else
+<<<<<<< HEAD
                 gain = 1;
             this.Frame()[0] = source.Frame()[0] * gain * amplitude;
             this.Frame()[1] = source.Frame()[1] * gain * amplitude;
+=======
+                gain = sustain * (duration - time) / release;
+                //gain = 1 + (duration - time - release) / (release);
+           
+            this.Frame()[0] = source.Frame()[0] * gain;
+            this.Frame()[1] = source.Frame()[1] * gain;
+>>>>>>> main
             time += SamplePeriod;
             return true;
         }
@@ -40,6 +50,8 @@ namespace Synthie
         {
             time = 0;
             attack = 0.05;
+            decay = 0.05;
+            sustain = 0.8;
             release = 0.05;
             duration *= source.SecsPerBeat;
         }

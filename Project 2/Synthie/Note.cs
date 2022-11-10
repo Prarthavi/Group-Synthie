@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +14,7 @@ namespace Synthie
         private double beat;
         private double count;
         private string pitch;
+<<<<<<< HEAD
         private double freq;
         private double amplitude;
         private string effect;
@@ -27,7 +28,31 @@ namespace Synthie
         public double Freq { get => freq; set => freq = value; }
         public double Amplitude { get => amplitude; set => amplitude = value; }
         public string Effect { get => effect; set => effect = value; }
+=======
+        private double pedalSus;
+        private double speed; 
 
+        //private string pitch2;
+        private double vibrato;
+        private string waveType;
+          private Boolean filterEnvelope;
+          private double r;
+        private double resonFreq;
+        public double Beat { get => beat; }
+        public double Count { get => count; }
+        public string Instrument { get => instrument; }
+        public int Measure { get => measure; }
+        public string Pitch { get => pitch; }
+        public double PedalSus { get => pedalSus; }
+>>>>>>> main
+
+        public double Speed { get => speed; }
+        //public string Pitch2 { get => pitch2; }
+        public double Vibrato { get => vibrato; }
+        public double R { get => r; }
+        public double ResonFreq { get => r; }
+        public Boolean FilterEnvelope { get => filterEnvelope;}
+         public string WaveType { get => waveType; }
         public Note()
         {
 
@@ -81,6 +106,42 @@ namespace Synthie
                 if (attr.Name == "effect")
                 {
                     effect = attr.Value;
+                }
+
+                if (attr.Name == "sustain")
+                {
+                    pedalSus = Convert.ToDouble(attr.Value);
+                }
+
+                if (attr.Name == "speed")
+                {
+                    speed = Convert.ToDouble(attr.Value);
+                }
+                if(attr.Name == "vibrato")
+                {
+                    vibrato = Convert.ToDouble(attr.Value);
+                }
+
+                /*
+                if(attr.Name == "note2")
+                {
+                    pitch2 = attr.Value;
+                }*/
+                if(attr.Name == "ResonFreq")
+                {
+                    resonFreq = Convert.ToDouble(attr.Value);
+                }
+                if(attr.Name == "waveType")
+                {
+                   waveType = attr.Value;
+                }
+                 if (attr.Name == "Radius")
+                {
+                    r = Convert.ToDouble(attr.Value);
+                }
+                if(attr.Name == "filterEnvelope")
+                {
+                    filterEnvelope = attr.Value == "true" ? true : false;
                 }
             }
         }

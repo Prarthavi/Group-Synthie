@@ -2,6 +2,8 @@
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using static System.Net.WebRequestMethods;
+using File = System.IO.File;
 
 namespace Synthie
 {
@@ -50,7 +52,7 @@ namespace Synthie
             {
                 soundOut.WriteNextFrame(ClampFrame(frame));
             }
-
+            
             soundOut.Close();
         }
         public void OpenScore(string filename)
@@ -62,97 +64,24 @@ namespace Synthie
         /// </summary>
         public void OnGenerate1000hztone()
         {
-
+            //ResonFilter reson = new ResonFilter();
+            SawToothWaves w = new SawToothWaves();
             if (soundOut == null)
-                soundOut = new SoundStream(tempFilePath, 'w', 44100, 1);
+                soundOut = new SoundStream(tempFilePath, 'w', 22000, 1);
 
             double freq = 1000;
             double duration = 5;
             double frameDuration = 1.0 / soundOut.SampleRate;
-
+            
             float val;
-            for (double time = 0.0; time < duration; time += frameDuration)
+            for (double time = 0; time < duration ; time+=frameDuration)
             {
-                val = (float)(Math.Sin(time * 2 * Math.PI * freq));
+
+                w.Generate();
+                val = (float)(w.Frame()[0]);
                 soundOut.WriteNextFrame(val);
             }
         }
-        public void CalculateReson(float freqFilter)
-        {
-
-            double duration = 5;
-            double frameDuration = 1.0 / soundIn.SampleRate;
-            float R = 0.7f;
-            double theta = (2 * Math.PI * freqFilter);
-            float cosFilter = (float)Math.Cos(theta);
-            float[] val;
-            int count = 0;
-            float[] y1 = { };
-            float[] y2 = { };
-            for (double time = 0.0; time < duration; time += frameDuration, count++)
-            {
-                switch (count)
-                {
-                    case 0:
-                        y2 = soundIn.ReadNextFrame();
-                        soundOut.WriteNextFrame(y2);
-                        break;
-                    case 1:
-                        y1 = soundIn.ReadNextFrame();
-                        soundOut.WriteNextFrame(y1);
-                        break;
-                    default:
-                        val = soundIn.ReadNextFrame();
-                        for (int i = 0; i < val.Length; i++)
-                        {
-                            float temp = i < y1.Length ? y1[i] : 0;
-                            float temp2 = i < y2.Length ? y2[i] : 0;
-                            val[i] = val[i] + (2 * R * cosFilter * temp) + (R * R * temp2);
-                        }
-                        soundOut.WriteNextFrame(val);
-                        y2 = y1;
-                        y1 = val;
-                        break;
-
-                }
-
-            }
-        }
-        public void MakeSquareWaves(float frequency)
-        {
-            //the specification will specify which frequency to eliminate
-            if (soundIn == null)
-            {
-                MessageBox.Show("Need a sound loaded first", "Generation Error");
-                return;
-            }
-
-            //pull needed sound file encoding parameters
-            float duration = soundIn.Duration - 1.0f / sampleRate;
-
-            //setup progress bar
-            ProgressBar progress = new ProgressBar();
-            progress.Runworker();
-
-
-            for (double time = 0.0; time < duration; time += 1.0 / sampleRate)
-            {
-                //float val = 0.0f;
-                //float val2 = 0.0f;
-
-            }
-            //val = val < 0 ? 0 : val;
-            //val2 = val2 < 0 ? 0 : val2;
-            //sanity check for stereo
-
-            CalculateReson(0.2f);
-
-        }
-
-        
-    
-
-
         
         public void OnPaint(Graphics g)
         {
@@ -224,6 +153,56 @@ namespace Synthie
                 soundIn.Close();
                 soundIn = null;
             }
+        }
+        private Sound temp;
+        internal void GenerateSquare()
+        {
+            if (soundOut == null)
+                soundOut = new SoundStream(tempFilePath, 'w', 44100, 1);
+            
+            double freq = 1000;
+            float duration = 5f;
+            //double frameDuration = 1.0 / soundOut.SampleRate;
+            //SquareWaves subtractive = new SquareWaves();
+            ////TriangleWaves triangle = new TriangleWaves();
+            ////SineWave subtractive = new SineWave();
+            //ADSREnvelope adsr = new ADSREnvelope(duration, 0.7, 0.7, 0.6 ,0.7);
+            //ResonFilter Rfilter = new ResonFilter(0.3);
+            //FilterEnvelope filter = new FilterEnvelope();
+            //float []val;
+
+
+            //for (double time = 0.0; time < duration / 2; time += frameDuration)
+            //{
+
+            //    subtractive.Frequency = 440;
+            //    filter.Generate();
+            //    subtractive.Amp = filter.Frame()[0];
+            //    subtractive.Generate();
+
+            //    val = subtractive.Generated();
+            //    val[0] = (float)Rfilter.getAmplitude(val[0]);
+            //    //val -= (float)Rfilter.getAmplitude((float)(1 / time));
+            //    //val[1] = val[1] - (float)Rfilter.getAmplitude((float)(1 / time));
+            //    soundOut.WriteNextFrame(val);
+            //}
+
+            //for (double time = duration / 2; time < duration; time += frameDuration)
+            //{
+
+            //    //subtractive.Amp = adsr.GetAmplitude(time);
+                
+            //    triangle.Frequency = 22050;
+            //    filter.Generate();
+            //    triangle.Amp = filter.Frame()[0];
+            //    triangle.Generate();
+            //     float val2 = triangle.Generated();
+            //    //val2 = (float)Rfilter.getAmplitude((float)val2);
+            //    //val[1] = val[1] - (float)Rfilter.getAmplitude((float)(1 / time));
+            //    soundOut.WriteNextFrame(val2);
+            //}
+            
+
         }
         #endregion
     }

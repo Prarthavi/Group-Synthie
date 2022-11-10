@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -95,10 +95,31 @@ namespace Synthie
                 {
                     instrument = new ToneInstrument();
                 }
+<<<<<<< HEAD
                 else if (note.Instrument.Substring(0,4) == "Drum")
                 {
                     instrument = new DrumInstrument(note.Instrument);
                 }
+=======
+                else if (note.Instrument == "Piano")
+                {
+                    instrument = new Piano();
+                }
+                else if (note.Instrument == "AdditiveInstrument")
+                {
+                    instrument = new AdditiveInstrument();
+                }
+                 else if (note.Instrument == "SubtractiveInstrument")
+                {
+                    instrument = new SubtractiveInstrument();
+                }
+
+                /*
+                else if (note.Instrument == "AdditiveCrossfadingInstrument")
+                {
+                    instrument = new AdditiveCrossfadingInstrument();
+                }*/
+>>>>>>> main
 
                 // Configure the instrument object
                 if (instrument != null)

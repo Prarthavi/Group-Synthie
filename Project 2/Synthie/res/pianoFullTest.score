@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<score bpm="88" beatspermeasure="4">
+   <instrument instrument="Piano">      
+      <note measure="1" beat="1" count="0.5" note="D3" />
+      <note measure="1" beat="3" count="0.5" note="A2" />
+      <note measure="1" beat="1" count="0.5" note="F#5"/>
+      <note measure="1" beat="3" count="0.5" note="E5" />
+      <note measure="1" beat="1" count="0.5" note="D5" />
+      <note measure="1" beat="3" count="0.5" note="C#5"/>
+      <note measure="2" beat="1" count="0.5" note="B2" sustain="3.5"/>
+      <note measure="2" beat="3" count="0.5" note="F#2"/>   
+      <note measure="2" beat="1" count="0.5" note="D5" />
+      <note measure="2" beat="3" count="0.5" note="C#5" speed="1.5"/> 
+      <note measure="2" beat="1" count="0.5" note="B4"/>
+      <note measure="2" beat="3" count="0.5" note="A4"/> 
+      <note measure="3" beat="1" count="0.5" note="G2"/>
+      <note measure="3" beat="3" count="0.5" note="D2"/> 
+      <note measure="3" beat="1" count="0.5" note="B4"/>
+      <note measure="3" beat="3" count="0.5" note="A4"/>
+      <note measure="3" beat="1" count="0.5" note="G4"/>
+      <note measure="3" beat="3" count="0.5" note="D4"/>
+      <note measure="4" beat="1" count="0.5" note="G2"/>
+      <note measure="4" beat="3" count="0.7" note="A2"/>
+      <note measure="4" beat="1" count="0.5" note="B4"/>
+      <note measure="4" beat="3" count="0.7" note="C#5" speed = "1.5"/>
+      <note measure="4" beat="1" count="0.5" note="G4" speed="1.5"/>
+      <note measure="4" beat="3" count="0.7" note="A4" speed = "1.5"/>
+   </instrument>
+</score>
