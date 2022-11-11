@@ -31,17 +31,14 @@ namespace Synthie
             else if (time < duration - release)
                 gain = sustain;
             else
-<<<<<<< HEAD
                 gain = 1;
             this.Frame()[0] = source.Frame()[0] * gain * amplitude;
             this.Frame()[1] = source.Frame()[1] * gain * amplitude;
-=======
                 gain = sustain * (duration - time) / release;
                 //gain = 1 + (duration - time - release) / (release);
            
             this.Frame()[0] = source.Frame()[0] * gain;
             this.Frame()[1] = source.Frame()[1] * gain;
->>>>>>> main
             time += SamplePeriod;
             return true;
         }

@@ -104,7 +104,6 @@ namespace Synthie
             }
         }
 
-<<<<<<< HEAD
         private void playSampleDrums_Click(object sender, EventArgs e)
         {
             //SoundStream streamin = new SoundStream("../../res/Drums/Floor-Tom-1.wav");
@@ -121,7 +120,7 @@ namespace Synthie
 
             //soundOut.Close();
             //streamin.Play();
-=======
+        }
         private void pianoSynthesizerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             synth.Generate();
@@ -129,9 +128,9 @@ namespace Synthie
 
         private void additiveSynthesiserToolStripMenuItem_Click(object sender, EventArgs e)
         {
->>>>>>> main
             synth.Generate();
             OnPostGeneration();
         }
     }
 }
+

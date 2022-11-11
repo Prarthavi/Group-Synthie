@@ -14,7 +14,6 @@ namespace Synthie
         private double beat;
         private double count;
         private string pitch;
-<<<<<<< HEAD
         private double freq;
         private double amplitude;
         private string effect;
@@ -28,7 +27,7 @@ namespace Synthie
         public double Freq { get => freq; set => freq = value; }
         public double Amplitude { get => amplitude; set => amplitude = value; }
         public string Effect { get => effect; set => effect = value; }
-=======
+        public double PedalSus{ get => pedalSus; set => pedalSus = value; }
         private double pedalSus;
         private double speed; 
 
@@ -38,13 +37,6 @@ namespace Synthie
           private Boolean filterEnvelope;
           private double r;
         private double resonFreq;
-        public double Beat { get => beat; }
-        public double Count { get => count; }
-        public string Instrument { get => instrument; }
-        public int Measure { get => measure; }
-        public string Pitch { get => pitch; }
-        public double PedalSus { get => pedalSus; }
->>>>>>> main
 
         public double Speed { get => speed; }
         //public string Pitch2 { get => pitch2; }

@@ -95,12 +95,10 @@ namespace Synthie
                 {
                     instrument = new ToneInstrument();
                 }
-<<<<<<< HEAD
                 else if (note.Instrument.Substring(0,4) == "Drum")
                 {
-                    instrument = new DrumInstrument(note.Instrument);
+                    //instrument = new DrumInstrument(note.Instrument);
                 }
-=======
                 else if (note.Instrument == "Piano")
                 {
                     instrument = new Piano();
@@ -119,7 +117,6 @@ namespace Synthie
                 {
                     instrument = new AdditiveCrossfadingInstrument();
                 }*/
->>>>>>> main
 
                 // Configure the instrument object
                 if (instrument != null)

@@ -154,7 +154,7 @@ namespace Synthie
                 soundIn = null;
             }
         }
-        private Sound temp;
+        private Sound   temp;
         internal void GenerateSquare()
         {
             if (soundOut == null)
